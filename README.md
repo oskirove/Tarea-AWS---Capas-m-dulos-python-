@@ -4,6 +4,39 @@
 
 Antes de comenzar, actualizaremos el código para que funcione como una función de Lambda. Eliminaremos las partes relacionadas con el webhook de Discord y reemplazaremos la función `lambda_handler` para que envíe un mensaje simple. 
 
+```python
+# importamos las librerias necesarias
+from discord_webhook import DiscordWebhook, DiscordEmbed
+import json
+import requests
+
+# Creamos el webhook y el embed, sustituyendo el enlace al webhook por el que hayamos creado en Discord
+webhook = DiscordWebhook(url="enlace al webhook")
+
+# Creamos el embed
+embed = DiscordEmbed(
+    # titulo, descripcion y color del embed
+    title="Taco Love",
+    description="Tu taquito ya está!",
+    color="03b2f8")
+
+# Añadimos la imagen del taco al mensaje
+embed.set_image(url="https://cdn.dribbble.com/users/545781/screenshots/3157610/happy-taco.jpg")
+# Añadimos el embed al webhook
+webhook.add_embed(embed)
+# Ejecutamos el webhook, enviando el mensaje a Discord
+webhook.execute()
+
+
+
+def lambda_handler(event, context):
+    # TODO implement
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Hello from Discord Lambda!')
+    }
+```
+
 Aquí se muestra el código actualizado:
 
 ```python
