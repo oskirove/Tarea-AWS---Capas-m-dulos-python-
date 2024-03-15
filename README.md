@@ -1,7 +1,5 @@
 # Envío de Mensajes a Discord con AWS Lambda (Python)
 
-Este repositorio contiene un código en Python que podemos ejecutar en AWS Lambda para enviar mensajes a Discord. Sigue los siguientes pasos para configurar y ejecutar este código en tu propio entorno de AWS Lambda.
-
 ## 1. Actualizar el Código
 
 Antes de comenzar, actualizaremos el código para que funcione como una función de Lambda. Eliminaremos las partes relacionadas con el webhook de Discord y reemplazaremos la función `lambda_handler` para que envíe un mensaje simple. 
